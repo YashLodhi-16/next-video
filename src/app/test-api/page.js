@@ -1,13 +1,15 @@
 import React from "react";
 import styles from "../page.module.css";
+const base_url = process.env.NEXT_PUBLIC_DEVELOPMENT_URL;
 const fetchData = async () => {
-  //   const url = "/api/userdata";
-  const url = `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL ?? null}/api/userdata`;
+  const url = `${base_url}/api/userdata`;
   const res = await fetch(url);
-  //   const res = await fetch(process.env.DEVELOPMENT_URL + url);
   return await res.json();
 };
 const TestApi = async () => {
+  if (!base_url) {
+    return null;
+  }
   const data = await fetchData();
   return (
     <main className={styles.main} style={{ alignItems: "start" }}>
