@@ -36,6 +36,11 @@ export default function Home() {
               ENV
             </Link>
           </li>
+          <li>
+            <Link href="/test-api" className={styles["common-text"]}>
+              Test Api
+            </Link>
+          </li>
         </ul>
       </nav>
     </main>
